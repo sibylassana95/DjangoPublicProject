@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ article.titre }}</h2>
+  <p>{{ article.description }}</p>
+  <p>{{ article.contenu }}</p>
+  {% if article.image %}
+    <img src="{{ article.image.url }}" alt="{{ article.titre }}">
+  {% endif %}
+  {% if user.is_authenticated %}
+    <div>
+      <a href="{% url 'modifier_article' id_article=article.id %}">Modifier</a>
+      <form method="POST" action="{% url 'supprimer_article' id_article=article.id %}">
+        {% csrf_token %}
+        <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?')">Supprimer</button>
+      </form>
+    </div>
+  {% endif %}
+{% endblock %}
