@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-12 col-md-8 mx-auto">
+            <div class="jumbotron">
+                <div class="row text-center">
+                    <div class="text-center col-12">
+                        <h2>Contactez nous&nbsp;</h2>
+                    </div>
+                    <div class="text-center col-12">
+                        <!-- CONTACT FORM https://github.com/jonmbake/bootstrap3-contact-form -->
+
+                        <form id="feedbackForm" class="text-center" method="POST">
+                           {% csrf_token %}
+                            <div class="form-group">
+
+                                <input type="text" class="form-control" id="name" name="nom" placeholder="Nom"
+                                       aria-describedby="nameHelp" required>
+                                <span id="nameHelp" class="form-text text-muted" style="display: none;">Please enter your name.</span>
+                            </div>
+                            <div class="form-group">
+
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email "
+                                       aria-describedby="emailHelp" required>
+                                <span id="emailHelp" class="form-text text-muted" style="display: none;">Please enter a valid e-mail address.</span>
+                            </div>
+                            <div class="form-group">
+
+                                <textarea rows="10" cols="100" class="form-control" id="message" name="message"
+                                          placeholder="Message" aria-describedby="messageHelp" required></textarea>
+                                <span id="messageHelp" class="form-text text-muted" style="display: none;">Please enter a message.</span>
+                            </div>
+                            <button type="submit" id="feedbackSubmit" class="btn btn-primary btn-lg"> Envoyer&nbsp;
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

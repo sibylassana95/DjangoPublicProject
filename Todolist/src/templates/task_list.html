@@ -1,0 +1,17 @@
+
+  <h1>List of Tasks</h1>
+  <ul>
+    {% for tasks in tasks %}
+      <li>{{ tasks.title }} - {{ tasks.completed }}</li>
+      <a href="{% url 'task_update' pk=tasks.pk %}">Modifier la tâche</a>
+<a href="{% url 'task_delete' pk=tasks.pk %}">Supprimer la tâche</a>
+    {% endfor %}
+  </ul>
+ <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Ajouter</button>
+  </form>
+
+
+

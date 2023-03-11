@@ -1,0 +1,51 @@
+<!doctype html>
+{% load static %}
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css-app/create.css' %}">
+
+ </head>
+ <body>
+
+<form action="" method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+  <div class="form">
+<h6 style="color: green;"> {{ message1}}</h6>
+   <div class="title">
+    Modification
+   </div>
+
+   <div class="input-container ic1">
+    {{form.nom}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">Nom</label>
+   </div>
+   <div class="input-container ic2">
+    {{form.description}}
+    <div class="cut"></div> <label for="lastname" class="placeholder">Description</label>
+   </div>
+   <div class="input-container ic2">
+    {{form.prix}}
+    <div class="cut cut-short"></div> <label for="email" class="placeholder">Prix </label>
+   </div>
+    <div class="input-container ic2">
+   {{form.stock}}
+    <div class="cut cut-short"></div> <label for="email" class="placeholder">Stock </label>
+   </div>
+    <div class="input-container ic2">
+    {{form.image}}
+    <div class="cut cut-short"></div> <label for="email" class="placeholder">Image </label>
+   </div>
+   <button type="submit" class="submit">Modifier</button>
+        <button  class="submit"> <a href="{% url 'table' %}" class="submit"> Annuler </a></button>
+
+
+
+
+
+  </div>
+</form>
+
+ </body>
+</html>

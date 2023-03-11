@@ -1,0 +1,12 @@
+{% load static %}
+<div class="side-menu">
+
+        <ul>
+            <li><a class="btn" href="{% url 'panel' %}"><img src="{% static 'css-app/images/dashboard(2).png'%}" alt=""> <span>Dashboard</span></a> </li>
+            <li><a class="btn" href="{% url 'eleve' %}"><img src= "{% static 'css-app/images/reading-book.png'%}" alt="">&nbsp;<span>Eleves</span></a></li>
+            <li><a class="btn" href="{% url 'prof' %}">  <img src="{% static 'css-app/images/teacher2.png'%}" alt="">&nbsp;<span>Professeurs</span>  </a></li>
+            <li><a class="btn" href="{% url 'eleve' %}"><img src="{% static 'css-app/images/school.png'%}" alt="">&nbsp;<span>Ecoles</span>  </a></li>
+            <li><a class="btn" href="{% url 'eleve' %}">  <img src="{% static 'css-app/images/payment.png'%}" alt="">&nbsp;<span>Income</span>   </a></li>
+
+        </ul>
+    </div>

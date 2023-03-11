@@ -1,0 +1,39 @@
+<!doctype html>
+{% load static %}
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css-app/create.css' %}">
+
+ </head>
+ <body>
+
+<form action="" method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+  <div class="form">
+{% for message in messages %}
+<h1 style="color: green;"> {{ message }}</h1>
+
+
+{% endfor %}
+   <div class="title">
+    Connexion
+   </div>
+
+   <div class="input-container ic1">
+     <input id="firstname" class="input" type="text" name="username">
+    <div class="cut"></div> <label for="firstname" class="placeholder">Login</label>
+   </div>
+  <div class="input-container ic1">
+    <input id="firstname" class="input" type="password" name="password">
+    <div class="cut"></div> <label for="firstname" class="placeholder">Password</label>
+   </div>
+
+
+   <button type="submit" class="submit">Connexion</button>
+   <a class="btn btn-secondary" href="/reset_password">reset password</a>
+  </div>
+</form>
+ </body>
+</html>

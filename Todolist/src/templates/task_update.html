@@ -1,0 +1,8 @@
+
+  <h1>Modifier la tâche {{ task.title }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer les modifications</button>
+  </form>
+

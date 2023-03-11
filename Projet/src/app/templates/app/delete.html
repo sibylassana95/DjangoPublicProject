@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+
+<h1 style="color: green;text-align: center; background-color:white;"> Vous voulez vraiment supprimer le produit {{ name }}? </h1>
+<center>
+    <form method="post"  action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
+       <button type="submit" class="btn btn-danger">Supprimer</button>
+       <button  class="btn btn-primary"> <a href="{% url 'table' %}" class="text-white"> Annuler </a></button>
+    </form>
+</center>
+
+    
+{% endblock %}

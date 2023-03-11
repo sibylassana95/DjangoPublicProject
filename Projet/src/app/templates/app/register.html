@@ -1,0 +1,58 @@
+<!doctype html>
+{% load static %}
+<html> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="stylesheet" href="{% static 'css-app/register.css' %}">
+ </head> 
+ <body>
+ <form action="" method="post" enctype="multipart/form-data">
+ {% csrf_token %}
+  <div class="form">
+{% for message in messages %}
+<h1 style="color: green;"> {{ message }}</h1>
+
+
+{% endfor %}
+   <div class="title">
+     Créer un compte
+   </div>
+   <div class="input-container ic1">
+
+    {{ form.username}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">Username</label>
+   </div> 
+    <div class="input-container ic1">
+    {{ form.email}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">Email</label>
+   </div>
+ <div class="input-container ic1">
+    {{ form.first_name}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">First_name</label>
+   </div>
+ <div class="input-container ic1">
+    {{ form.last_name}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">last_name</label>
+   </div>
+ <div class="input-container ic1">
+    {{ form.password1}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">Password</label>
+   </div>
+ <div class="input-container ic1">
+    {{ form.password2}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">Password confirmation</label>
+   </div>
+   <div class="input-container ic1">
+    {{ form.address}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">Adresse</label>
+   </div>
+   <div class="input-container ic1">
+    {{ form.number}}
+    <div class="cut"></div> <label for="firstname" class="placeholder">Numero</label>
+   </div>
+        <button type="submit" class="submit">submit</button>
+  </div>
+ </form>
+ </body>
+</html>

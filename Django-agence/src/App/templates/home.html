@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h3 class="md-3"> Venez réserver pour vos Vacances chez nous </h3>
+
+    <div class="row">
+     {% for product in produits %}
+        <div class="col-1g-4 ml-4">
+            <div class="card shadow" style="width: 18rem;">
+                <img src="{{product.image.url}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.nom}}</h5>
+                    <p class="card-text">{{product.description}}</p>
+                    <a href="#" class="btn btn-warning ">Visitez</a>
+                    <a href="#" class="btn btn-success">Réserver</a>
+                </div>
+            </div>
+
+        </div>
+     {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

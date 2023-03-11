@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css-app/panel.css' %}">
+
+
+    <title>Administrateur</title>
+</head>
+
+<body>
+   {% include 'app/navbar_panel.html' %}
+   {% include 'app/navbar2_panel.html' %}
+
+
+        <div class="content">
+            <div class="cards">
+                <div class="card">
+                    <div class="box">
+                        <h1>{{total}}</h1>
+                        <h3>Elèves</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="{% static 'css-app/images/students.png'%}" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                         <h1>{{total1}}</h1>
+                        <h3>Professeurs</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="{% static 'css-app/images/teachers.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>5</h1>
+                        <h3>Ecoles</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="{%static 'css-app/images/schools.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>350000</h1>
+                        <h3>Income</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="{% static 'css-app/images/income.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>MON APP</title>
+    <link rel="stylesheet" href="{% static 'css-app/style.css' %}">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="{% static 'css-app/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css-app/bootstrap.css' %}">
+</head>
+<body>
+
+<header>
+    {% include 'app/navbar.html' %}
+
+</header>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    {% for product in produits %}
+    <div class="col">
+        <div class="card shadow-sm">
+            {% if product.image %}
+            <img src="{{product.image.url}}" class="card-img-top" alt="{{product.nom}}">
+            {% else %}
+            <h3>no image</h3>
+            {% endif%}
+
+            <div class="card-body">
+                <h5 class="card-title">{{product.nom}}</h5>
+                <h5 class="card-title">{{product.prix}}FCFA</h5>
+                <p class="card-text">{{product.stock}} EN STOCK</p>
+                <a href="#" class="btn btn-primary">Ajouter au panier</a>
+            </div>
+        </div>
+
+    </div>
+
+    {% endfor %}
+</div>
+
+
+<footer class="bg-light text-center text-lg-start">
+    {% include 'app/footer.html' %}
+</footer>
+<!-- JavaScript Bundle with Popper -->
+<script src="{% static 'css-app/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

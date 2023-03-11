@@ -1,0 +1,54 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap-4.4.1.css' %}">
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Mon Agence</title>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-dark shadow">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#">SIBY Agence</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav text-white">
+                <a class="nav-item nav-link text-white active" href="{% url 'acceuil' %}">Acceuil <span
+                        class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link text-white" href="{% url 'home' %}">Gallery</a>
+                <a class="nav-item nav-link text-white" href="#">A propos</a>
+                <a class="nav-item nav-link text-white " href="{% url 'contact' %}">Contact nous</a>
+                <a class="nav-item nav-link btn btn-success ml-5" href="{% url 'login' %}">Connexion</a>
+                <a class="nav-item nav-link btn btn-info ml-4" href="{% url 'register' %}">Créer un compte</a>
+                <a class="nav-item nav-link btn btn-danger ml-4" href="{% url 'logout' %}">Deconnexion</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+{% block content %}
+
+{% endblock %}
+<footer class="bg-dark p-3 ">
+    <p class="text-center text-white">Tout droit réservé ,créer par Lassana Siby </p>
+</footer>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'js/jQuery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+
+<script src="{% static 'js/bootstrap-4.4.1.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+  {% load static %}
+<div class="container">
+        <div class="header">
+            <div class="nav">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                <div class="search">
+                    <input type="text" placeholder="Recherche..">
+                    <button type="submit"><img src="{% static 'css-app/images/search.png'%}" alt=""></button>
+
+                </div>
+                <div class="user">
+
+                    <img src="{% static 'css-app/images/notifications.png' %}" alt="">
+                    <div class="img-case">
+                        <img src="{% static 'css-app/images/user.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>

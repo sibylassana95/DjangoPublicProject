@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css-app/panel.css' %}">
+    <title>Administrateur</title>
+</head>
+
+<body>
+   {% include 'app/navbar_panel.html' %}
+    {% include 'app/navbar2_panel.html' %}
+
+<div class="content">
+
+    <div class="content-2">
+                <div class="recent-payments">
+                    <div class="title">
+                        <h2>Listes des Professeurs</h2>
+                        <a href="#" class="btn">Voir plus</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Matiere</th>
+                             <th>Salaire</th>
+                            <th>Option</th>
+                        </tr>
+                        {% for  product in produits %}
+                        <tr>
+                            <td>{{product.nom}}</td>
+                            <td>{{product.prenom}}</td>
+                            <td>{{product.matiere}}</td>
+                            <td>{{product.salaire}}</td>
+                            <td><a href="#" class="btn">View</a></td>
+                        </tr>
+                         {% endfor %}
+                    </table>
+                </div>
+                <div class="new-students">
+                    <div class="title">
+                        <h2>Nouveau Professeurs</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Profil</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>option</th>
+                        </tr>
+                         {% for  product in produits %}
+                        <tr>
+                            <td><img src="{{product.profil.url}}" alt=""></td>
+                              <td>{{product.nom}}</td>
+                              <td>{{product.prenom}}</td>
+                            <td><a href="#" class="btn">View</a></td>
+                        </tr>
+                         {% endfor %}
+
+
+
+                    </table>
+                </div>
+            </div>
+
+     </div>
+</body>
+
+</html>

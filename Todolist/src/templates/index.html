@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card px-3">
+                    <div class="card-body">
+                        <h4 class="card-title"> Todo list</h4>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="add-items d-flex"> <button class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> </div>
+                            <div class="list-wrapper">
+                                {% for tasks in tasks %}
+                                <table class="table table-striped table-hover table-bordered">
+                                    <tr>
+                                        <td>
+                                            <p class="lead fw-normal mb-0 text-primary">{{ tasks.title }} </p>
+                                        </td>
+                                        <td align="right">
+                                            <a href="{% url 'task_update' pk=tasks.pk %}" class="text-info" data-mdb-toggle="tooltip" title="Modifier"><i class="fas fa-pencil-alt me-3"></i></a>
+                                            <a href="{% url 'task_delete' pk=tasks.pk %}" class="text-danger" data-mdb-toggle="tooltip" title="Supprimer"><i class="fas fa-trash-alt"></i></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                {% endfor %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
