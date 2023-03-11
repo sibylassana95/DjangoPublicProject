@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+  {% block content %}
+<form action="{% url 'list_passwords' %}" method="GET" ;>
+  {% csrf_token %}
+  <div class="p-5" style="text-align: center;" class="container">
+    <h1 class="p-5">Générateur de mot de passe</h1>
+    <p class="p-5">Nombre de caractères<input name="number_characters" class="form-control-sm" type="number">
+      <button class="form-control-sm">Générer</button>
+    </p>
+  </div>
+</form>
+{% endblock %}
