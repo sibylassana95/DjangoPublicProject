@@ -7,17 +7,24 @@ def home(request):
     return render(request, 'home.html')
 
 def passwords(request):
+    minuscule = "abcdefghijklmnopqrstuvwxyz"
+    majuscule= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    nombre = "0987654321"
+    symboles= "!@#$%&*?"
 
-    lower_case = "abcdefghijklmnopqrstuvwxyz"
-    upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    numbers = "0987654321"
-    symbols = "!@#$%&*?"
+    generer = minuscule + majuscule + nombre + symboles
 
-    to_generate = lower_case + upper_case + numbers + symbols
+    longueurdumotdepasse = int(request.GET.get('number_characters'))
 
-    length_password = int(request.GET.get('number_characters'))
+    password = "".join(random.sample(generer, longueurdumotdepasse))
 
-    password = "".join(random.sample(to_generate, length_password))
+    # save the generated password to the session for the current user
+    if 'passwords' not in request.session:
+        request.session['passwords'] = []
+    request.session['passwords'].append(password)
+    motdepasse = request.session.get('passwords', [])
+
+    return render(request, 'password.html', {"passwords": password, "motdepasse": motdepasse})
 
 
-    return render(request, 'password.html', {"passwords": password})
+
