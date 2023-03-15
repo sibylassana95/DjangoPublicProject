@@ -2,15 +2,17 @@ from django.shortcuts import render
 import random
 from django.http import HttpResponse
 
-# Create your views here.
+
 def home(request):
     return render(request, 'home.html')
 
+
 def passwords(request):
+
     minuscule = "abcdefghijklmnopqrstuvwxyz"
-    majuscule= "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    majuscule = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     nombre = "0987654321"
-    symboles= "!@#$%&*?"
+    symboles = "!@#$%&*?"
 
     generer = minuscule + majuscule + nombre + symboles
 
@@ -18,13 +20,18 @@ def passwords(request):
 
     password = "".join(random.sample(generer, longueurdumotdepasse))
 
-    # save the generated password to the session for the current user
-    if 'passwords' not in request.session:
-        request.session['passwords'] = []
-    request.session['passwords'].append(password)
-    motdepasse = request.session.get('passwords', [])
+    passwords_list = request.session.get('passwords_list', [])
 
-    return render(request, 'password.html', {"passwords": password, "motdepasse": motdepasse})
+    passwords_list.append(password)
+
+    request.session['passwords_list'] = passwords_list
+    passwords_list = request.session.get('passwords_list', [])
+
+    return render(request, 'password.html', {"passwords": password, "passwords_list": passwords_list})
 
 
+def passwords_list(request):
 
+    passwords_list = request.session.get('passwords_list', [])
+
+    return render(request, 'passwords_list.html', {"passwords_list": passwords_list})
