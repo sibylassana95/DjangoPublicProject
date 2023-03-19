@@ -15,8 +15,8 @@ from pathlib import Path
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sibyamara95@gmail.com'
-EMAIL_HOST_PASSWORD = 'uivfnxkphqmyminm'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +27,11 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR, "Application/templates")
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i(f-+=q8b0@auh8blyqxvo8v!!@h55(3a1s!f#0+n1fea0#ugp'
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
+
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
